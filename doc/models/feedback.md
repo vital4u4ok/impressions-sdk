@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `value` | `unknown` | Required | - |
-| `userId` | `string \| undefined` | Optional | - |
+| `userId` | `string \| undefined` | Optional | Optional ID of the user who provided feedback |
 
 ## Example (as JSON)
 

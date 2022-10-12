@@ -89,7 +89,7 @@ function createHttpClientAdapter(client: HttpClient): HttpClientInterface {
 function getBaseUri(server: Server = 'default', config: Configuration): string {
   if (config.environment === Environment.Production) {
     if (server === 'default') {
-      return 'http://localhost:3001';
+      return 'http://prod2.eba-zzx4akpv.us-east-1.elasticbeanstalk.com';
     }
   }
   throw new Error('Could not get Base URL. Invalid environment or server.');

@@ -54,6 +54,12 @@ try {
 }
 ```
 
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | The email or password is incorrect | [`CustomError`](../../doc/models/custom-error.md) |
+
 
 # Signup
 
@@ -92,4 +98,10 @@ try {
   }
 }
 ```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Unexpected error | [`CustomError`](../../doc/models/custom-error.md) |
 

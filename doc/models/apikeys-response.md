@@ -9,15 +9,13 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `data` | `unknown[] \| undefined` | Optional | User's keys |
-| `total` | `number \| undefined` | Optional | Total keys of current user |
+| `result` | [`Result \| undefined`](../../doc/models/result.md) | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "data": null,
-  "total": null
+  "result": null
 }
 ```
 

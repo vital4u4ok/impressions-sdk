@@ -14,6 +14,7 @@ const apiKeyController = new ApiKeyController(client);
 
 * [Get All Api Keys](../../doc/controllers/api-key.md#get-all-api-keys)
 * [Generate Api Key](../../doc/controllers/api-key.md#generate-api-key)
+* [Delete Api Key](../../doc/controllers/api-key.md#delete-api-key)
 
 
 # Get All Api Keys
@@ -55,6 +56,12 @@ try {
 }
 ```
 
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+
 
 # Generate Api Key
 
@@ -93,4 +100,56 @@ try {
   }
 }
 ```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+
+
+# Delete Api Key
+
+Delete an existing api key
+
+```ts
+async deleteApiKey(
+  keyId: string,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<ApikeysResponse2>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `keyId` | `string` | Template, Required | Key id |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+[`ApikeysResponse2`](../../doc/models/apikeys-response-2.md)
+
+## Example Usage
+
+```ts
+const keyId = 'keyId0';
+try {
+  const { result, ...httpResponse } = await apiKeyController.deleteApiKey(keyId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+| 404 | The specified resource was not found | [`CustomError`](../../doc/models/custom-error.md) |
 

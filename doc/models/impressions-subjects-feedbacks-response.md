@@ -9,13 +9,13 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string \| undefined` | Optional | Feedback ID |
+| `result` | [`Result3 \| undefined`](../../doc/models/result-3.md) | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "id": null
+  "result": null
 }
 ```
 

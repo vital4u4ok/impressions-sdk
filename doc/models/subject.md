@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string \| undefined` | Optional | - |
-| `createdAt` | `string \| undefined` | Optional | - |
+| `id` | `string \| undefined` | Optional | Subject id |
+| `createdAt` | `string \| undefined` | Optional | Subject creation time |
 
 ## Example (as JSON)
 

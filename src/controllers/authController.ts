@@ -5,6 +5,7 @@
  */
 
 import { ApiResponse, RequestOptions } from '../core';
+import { CustomError } from '../errors/customError';
 import {
   AuthLoginResponse,
   authLoginResponseSchema,
@@ -29,6 +30,7 @@ export class AuthController extends BaseController {
     const mapped = req.prepareArgs({ body: [body, optional(loginSchema)] });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
+    req.throwOn(400, CustomError, 'The email or password is incorrect');
     return req.callAsJson(authLoginResponseSchema, requestOptions);
   }
 
@@ -46,6 +48,7 @@ export class AuthController extends BaseController {
     const mapped = req.prepareArgs({ body: [body, optional(signupSchema)] });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
+    req.throwOn(400, CustomError, 'Unexpected error');
     return req.call(requestOptions);
   }
 }

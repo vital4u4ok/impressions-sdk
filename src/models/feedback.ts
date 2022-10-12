@@ -8,6 +8,7 @@ import { object, optional, Schema, string, unknown } from '../schema';
 
 export interface Feedback {
   value?: unknown;
+  /** Optional ID of the user who provided feedback */
   userId?: string;
 }
 

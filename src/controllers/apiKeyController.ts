@@ -5,6 +5,7 @@
  */
 
 import { ApiResponse, RequestOptions } from '../core';
+import { CustomError } from '../errors/customError';
 import { ApikeysRequest, apikeysRequestSchema } from '../models/apikeysRequest';
 import {
   ApikeysResponse,
@@ -14,7 +15,11 @@ import {
   ApikeysResponse1,
   apikeysResponse1Schema,
 } from '../models/apikeysResponse1';
-import { number, optional } from '../schema';
+import {
+  ApikeysResponse2,
+  apikeysResponse2Schema,
+} from '../models/apikeysResponse2';
+import { number, optional, string } from '../schema';
 import { BaseController } from './baseController';
 
 export class ApiKeyController extends BaseController {
@@ -37,6 +42,7 @@ export class ApiKeyController extends BaseController {
     });
     req.query('skip', mapped.skip);
     req.query('limit', mapped.limit);
+    req.throwOn(401, CustomError, 'Unauthorized');
     return req.callAsJson(apikeysResponseSchema, requestOptions);
   }
 
@@ -56,6 +62,25 @@ export class ApiKeyController extends BaseController {
     });
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
+    req.throwOn(401, CustomError, 'Unauthorized');
     return req.callAsJson(apikeysResponse1Schema, requestOptions);
+  }
+
+  /**
+   * Delete an existing api key
+   *
+   * @param keyId Key id
+   * @return Response from the API call
+   */
+  async deleteApiKey(
+    keyId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<ApikeysResponse2>> {
+    const req = this.createRequest('DELETE');
+    const mapped = req.prepareArgs({ keyId: [keyId, string()] });
+    req.appendTemplatePath`/apikeys/${mapped.keyId}`;
+    req.throwOn(401, CustomError, 'Unauthorized');
+    req.throwOn(404, CustomError, 'The specified resource was not found');
+    return req.callAsJson(apikeysResponse2Schema, requestOptions);
   }
 }

@@ -60,6 +60,13 @@ try {
 }
 ```
 
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+| 404 | The specified resource was not found | [`CustomError`](../../doc/models/custom-error.md) |
+
 
 # Delete Subject
 
@@ -99,6 +106,13 @@ try {
 }
 ```
 
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+| 404 | The specified resource was not found | [`CustomError`](../../doc/models/custom-error.md) |
+
 
 # Get Subjects
 
@@ -107,7 +121,7 @@ Get a list of all subjects
 ```ts
 async getSubjects(
   requestOptions?: RequestOptions
-): Promise<ApiResponse<Subject[]>>
+): Promise<ApiResponse<ImpressionsSubjectsResponse1>>
 ```
 
 ## Parameters
@@ -118,7 +132,7 @@ async getSubjects(
 
 ## Response Type
 
-[`Subject[]`](../../doc/models/subject.md)
+[`ImpressionsSubjectsResponse1`](../../doc/models/impressions-subjects-response-1.md)
 
 ## Example Usage
 
@@ -135,6 +149,13 @@ try {
 }
 ```
 
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+| 404 | The specified resource was not found | [`CustomError`](../../doc/models/custom-error.md) |
+
 
 # Get Feedbacks
 
@@ -144,7 +165,7 @@ Get a list of all subject feedbacks
 async getFeedbacks(
   subjectId: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<Feedback[]>>
+): Promise<ApiResponse<ImpressionsSubjectsFeedbacksResponse1>>
 ```
 
 ## Parameters
@@ -156,7 +177,7 @@ async getFeedbacks(
 
 ## Response Type
 
-[`Feedback[]`](../../doc/models/feedback.md)
+[`ImpressionsSubjectsFeedbacksResponse1`](../../doc/models/impressions-subjects-feedbacks-response-1.md)
 
 ## Example Usage
 
@@ -173,6 +194,13 @@ try {
   }
 }
 ```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+| 404 | The specified resource was not found | [`CustomError`](../../doc/models/custom-error.md) |
 
 
 # Add User Feedback
@@ -215,4 +243,11 @@ try {
   }
 }
 ```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Unauthorized | [`CustomError`](../../doc/models/custom-error.md) |
+| 404 | The specified resource was not found | [`CustomError`](../../doc/models/custom-error.md) |
 

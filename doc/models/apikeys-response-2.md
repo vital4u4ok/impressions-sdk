@@ -1,15 +1,15 @@
 
-# Auth Login Response
+# Apikeys Response 2
 
 ## Structure
 
-`AuthLoginResponse`
+`ApikeysResponse2`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `result` | [`Result2 \| undefined`](../../doc/models/result-2.md) | Optional | - |
+| `result` | [`Result1 \| undefined`](../../doc/models/result-1.md) | Optional | - |
 
 ## Example (as JSON)
 
