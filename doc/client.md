@@ -8,7 +8,7 @@ The following parameters are configurable for the API Client:
 | `timeout` | `number` | Timeout for API calls.<br>*Default*: `0` |
 | `httpClientOptions` | `Partial<HttpClientOptions>` | Stable configurable http client options. |
 | `unstableHttpClientOptions` | `any` | Unstable configurable http client options. |
-| `xAPIKey` | `string` |  |
+| `xApiKey` | `string` |  |
 
 ## HttpClientOptions
 
@@ -36,7 +36,7 @@ The API client can be initialized as follows:
 ```ts
 const client = new Client({
   timeout: 0,
-  xAPIKey: 'X-API-Key',
+  xApiKey: null,
 })
 ```
 

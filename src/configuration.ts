@@ -10,7 +10,7 @@ import { HttpClientOptions } from './core';
 export interface Configuration {
   timeout: number;
   environment: Environment;
-  xAPIKey: string;
+  xApiKey: string;
   httpClientOptions?: Partial<HttpClientOptions>;
   unstable_httpClientOptions?: any;
 }

@@ -20,6 +20,8 @@ const authController = new AuthController(client);
 
 Login into Imporession API
 
+:information_source: **Note** This endpoint does not require authentication.
+
 ```ts
 async login(
   body?: Login,
@@ -64,6 +66,8 @@ try {
 # Signup
 
 Signup for Imporession API
+
+:information_source: **Note** This endpoint does not require authentication.
 
 ```ts
 async signup(
