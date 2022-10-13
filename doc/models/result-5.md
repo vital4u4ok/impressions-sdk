@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `total` | `number \| undefined` | Optional | Total number of subjects |
-| `data` | [`Subject[] \| undefined`](../../doc/models/subject.md) | Optional | - |
+| `data` | [`Datum[] \| undefined`](../../doc/models/datum.md) | Optional | - |
 
 ## Example (as JSON)
 

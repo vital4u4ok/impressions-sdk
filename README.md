@@ -1,5 +1,5 @@
 
-# Getting Started with API
+# Getting Started with impressions-sdk
 
 ## Building
 
@@ -17,7 +17,7 @@ Run the following commands in the command prompt or shell of your choice to chec
 
 * npm: `npm --version`
 
-![Version Check](https://apidocs.io/illustration/typescript?workspaceFolder=API&step=versionCheck)
+![Version Check](https://apidocs.io/illustration/typescript?workspaceFolder=ImpressionsSdk&step=versionCheck)
 
 ### Install Dependencies
 
@@ -29,7 +29,7 @@ npm install
 
 - This will install all dependencies in the **node_modules** folder.
 
-![Resolve Dependencies](https://apidocs.io/illustration/typescript?workspaceFolder=API&workspaceName=apilib&step=resolveDependency)
+![Resolve Dependencies](https://apidocs.io/illustration/typescript?workspaceFolder=ImpressionsSdk&workspaceName=impressions-sdklib&step=resolveDependency)
 
 ## Installation
 
@@ -53,9 +53,9 @@ npm init --y
 
 ### 2. Add Dependencies to the Client Library
 
-- The created project manages its dependencies using its `package.json` file. In order to add a dependency on the *APILib* client library, double click on the `package.json` file in the bar on the left and add the dependency to the package in it.
+- The created project manages its dependencies using its `package.json` file. In order to add a dependency on the *impressions-sdkLib* client library, double click on the `package.json` file in the bar on the left and add the dependency to the package in it.
 
-![Add Apilib Dependency](https://apidocs.io/illustration/typescript?workspaceFolder=API&workspaceName=apilib&step=importDependency)
+![Add ImpressionsSdklib Dependency](https://apidocs.io/illustration/typescript?workspaceFolder=ImpressionsSdk&workspaceName=impressions-sdklib&step=importDependency)
 
 - To install the package in the project, run the following command in the terminal:
 
@@ -63,7 +63,7 @@ npm init --y
 npm install
 ```
 
-![Install Apilib Dependency](https://apidocs.io/illustration/typescript?step=installDependency)
+![Install ImpressionsSdklib Dependency](https://apidocs.io/illustration/typescript?step=installDependency)
 
 ## Initialize the API Client
 
@@ -73,6 +73,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
+| `environment` | Environment | The API environment. <br> **Default: `Environment.Environment3`** |
 | `timeout` | `number` | Timeout for API calls.<br>*Default*: `0` |
 | `httpClientOptions` | `Partial<HttpClientOptions>` | Stable configurable http client options. |
 | `unstableHttpClientOptions` | `any` | Unstable configurable http client options. |
@@ -104,9 +105,23 @@ The API client can be initialized as follows:
 ```ts
 const client = new Client({
   timeout: 0,
+  environment: Environment.Environment3,
   xApiKey: null,
 })
 ```
+
+## Environments
+
+The SDK can be configured to use a different environment for making API calls. Available environments are:
+
+### Fields
+
+| Name | Description |
+|  --- | --- |
+| production | Mock server |
+| environment2 | Localhost |
+| environment3 | **Default** Production |
+| environment4 | ApiContractTests |
 
 ## Authorization
 
@@ -115,7 +130,6 @@ This API uses `Custom Header Signature`.
 ## List of APIs
 
 * [Impressions](doc/controllers/impressions.md)
-* [Auth](doc/controllers/auth.md)
 * [Api Key](doc/controllers/api-key.md)
 
 ## Classes Documentation
