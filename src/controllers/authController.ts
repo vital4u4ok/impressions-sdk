@@ -31,6 +31,7 @@ export class AuthController extends BaseController {
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(400, CustomError, 'The email or password is incorrect');
+    req.authenticate(false);
     return req.callAsJson(authLoginResponseSchema, requestOptions);
   }
 
@@ -49,6 +50,7 @@ export class AuthController extends BaseController {
     req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.throwOn(400, CustomError, 'Unexpected error');
+    req.authenticate(false);
     return req.call(requestOptions);
   }
 }

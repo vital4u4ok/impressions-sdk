@@ -12,9 +12,9 @@ import { AuthenticatorInterface } from './core';
 export const noneAuthenticationProvider = () => passThroughInterceptor;
 
 export const customHeaderAuthenticationProvider = ({
-  xAPIKey,
+  xApiKey,
 }: {
-  xAPIKey: string;
+  xApiKey: string;
 }): AuthenticatorInterface<boolean> => {
   return (requiresAuth?: boolean) => {
     if (!requiresAuth) {
@@ -23,7 +23,7 @@ export const customHeaderAuthenticationProvider = ({
 
     return (request, options, next) => {
       const customHeaderParams = {
-        'X-API-Key': xAPIKey,
+        'x-api-key': xApiKey,
       };
       mergeHeaders(request.headers ?? {}, customHeaderParams);
 
