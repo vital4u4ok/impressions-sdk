@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `name` | `string \| undefined` | Optional | User's name |
 | `email` | `string \| undefined` | Optional | User's email |
-| `token` | `string \| undefined` | Optional | Access token |
+| `token` | [`Token \| undefined`](../../doc/models/token.md) | Optional | Access token |
 
 ## Example (as JSON)
 

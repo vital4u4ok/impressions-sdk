@@ -6,11 +6,10 @@
 
 import { object, optional, Schema, string } from '../schema';
 
-export interface Result4 {
-  /** Subject ID */
-  id?: string;
+export interface Datum {
+  name?: string;
 }
 
-export const result4Schema: Schema<Result4> = object({
-  id: ['id', optional(string())],
+export const datumSchema: Schema<Datum> = object({
+  name: ['name', optional(string())],
 });
