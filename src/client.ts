@@ -36,7 +36,7 @@ export class Client implements ClientInterface {
   private _retryConfig: RetryConfiguration;
   private _requestBuilderFactory: SdkRequestBuilderFactory;
 
-  constructor(config?: Partial<Configuration>) {
+  constructor(config?: Partial<Configuration> & { serverUrl?: string }) {
     this._config = {
       ...DEFAULT_CONFIGURATION,
       ...config,
@@ -50,7 +50,7 @@ export class Client implements ClientInterface {
         ? this._config.httpClientOptions.timeout
         : this._config.timeout;
     this._requestBuilderFactory = createRequestHandlerFactory(
-      server => getBaseUri(server, this._config),
+      config?.serverUrl ? () => config.serverUrl as string : server => getBaseUri(server, this._config),
       customHeaderAuthenticationProvider(this._config),
       new HttpClient({
         timeout: this._timeout,
